@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+
+        {{ product.description|truncatewords:155 }}
+
+{% endblock %}
+
+{% block titile %}
+    {% if product %}
+            {{ product.name }} - E-com
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="row prod_row_class">
+        <div class="mx_auto">
+                <p class="text_clr_pro"><a class="text_clr_pro"  href="{% url 'shoppingApp:allProCat' %}">Home</a> | <a class="text_clr_pro" href="{{ product.category.get_url }}">{{product.category}}</a>| {{product.name}} </p>
+        </div>
+</div>
+<div class="container">
+<br>
+<div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+                <div style="min-width: 18rem;">
+                        <img class="pro_page_img" src="{{product.image.url}}" alt="{{product.name}}">
+
+                </div>
+        </div>
+        
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <div>
+                       <h2 class="prod_name text-center">{{product.name}}</h2> 
+                       <p class="price">💰 Price :- ₹ {{product.price}}</p>
+                       <p class="prod_desc">[ Product descripton ]</p>
+                       <p class="prod_text text-justify">{{product.description}}</p>
+
+                       {% if product.stock <= 0 %}
+                       <p class="prod_text text-justify"><b>Out of stock</b></p>
+                       {% else %}
+                       <a href="{% url 'cart:add_cart' product.id %}" class="btn btn-primary">Add to cart</a>
+                       
+                       {% endif %}
+
+                </div></div>
+        </div>
+</div><br></div>
+
+{% endblock %}

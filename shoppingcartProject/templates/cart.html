@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    
+        This is the cart page.Proceed to review your item and place order.
+    
+{% endblock %}
+
+{% block titile %}
+    Cart
+{% endblock %}
+
+{% block content %}
+
+{% if not cart_items %}
+<div>
+    <div class="text-center">
+        <br>
+        <h2 class="text-center text_clr_pro">
+            Your cart is empty...
+        </h2>
+        <br>
+        <p class="text-center text_clr_pro">
+            Please click <a href="{% url 'shoppingApp:allProCat' %}">here to add products to your cart</a>
+        </p>
+    </div>
+</div>
+{% else %}
+<div>
+    <div class="text-center">
+        <br>
+        <h2 class="text_clr_pro">
+            Your cart items...
+        </h2>
+    </div>
+</div>
+<div class="row mx_auto">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+        <table class="table cart_table">
+            <thead class="cart_t_head">
+            <tr>
+                <th colspan="5">
+                    Your Items
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for cart_item in cart_items %}
+            <tr>
+                <td>
+                    <a href="cart_item.product.get_absolute_url"><img src="{{cart_item.product.image.url}}" alt="" style="width:150px;height:150px;" class="float-left rounded custom_image"></a>
+                </td>
+                <td> <h6 class="text_clr_pro">
+                    {{cart_item.product.name}}
+                    <br><br>
+                    SKU : {{cart_item.product.id}}
+                    <br><br>
+                    Price : Rs. {{cart_item.product.price}}
+                    <br><br>
+                    Qty : {{cart_item.quantity}} * ₹ {{cart_item.product.price}}
+                </h4></td>
+                <td> <h6 class="text_clr_pro">
+                    Sub total : ₹{{cart_item.sub_total}}
+                </h6></td>
+                {% if cart_item.quantity < cart_item.product.stock %}
+                <td>
+                  <a href="{% url 'cart:add_cart' cart_item.product.id %}"  class="custom_a" > <i class="fa fa-plus custom_icon"></i></a>
+                    &nbsp;<a href="{% url 'cart:cart_remove' cart_item.product.id %}" class="custom_a"> <i class="fa fa-minus custom_icon" > </i> </a>
+                    &nbsp;<a href="{% url 'cart:full_remove' cart_item.product.id %}" class="custom_a"> <i class="fa fa-trash custom_icon"> </i></a>
+
+                </td>
+                {% else %}
+                <td>
+                &nbsp;<a href="{% url 'cart:cart_remove' cart_item.product.id %}" class="custom_a"> <i class="fa fa-minus custom_icon" > </i> </a>
+                &nbsp;<a href="{% url 'cart:full_remove' cart_item.product.id %}" class="custom_a"> <i class="fa fa-trash"> </i></a>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+        <table class="table cart_table">
+            <thead class="cart_t_head">
+            <tr>
+                <th>
+                    Checkout
+                </th>
+            </tr>
+             </thead>
+        </table>
+        <table>
+        <tbody>
+        <tr>
+            <td> <h6 class="text_clr_pro">
+                Please review your shopping cart items before proceeding with the order payment
+            </h6></td>
+            <tr>
+            <td class="text-left text_clr_pro">Your Total is : <strong>Rs. {{total}}</strong></td>
+        </tr>
+        </tbody>
+            </table>
+        <div class="mx_auto">
+`            <a href="{% url 'shoppingApp:allProCat' %}" class="btn btn-secondary btn-block ">Continue Shopping</a>
+             <a href="" class="btn btn-success btn-block ">Order now</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

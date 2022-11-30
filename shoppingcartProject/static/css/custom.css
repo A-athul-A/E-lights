@@ -1,0 +1,138 @@
+body{
+    background-image: linear-gradient( 94.3deg,  rgba(26,33,64,1) 10.9%, rgba(81,84,115,1) 87.1% );
+}
+
+ /* ------- navbar ------- */
+.nav-item {
+    letter-spacing: .2em ;
+    font-size : 14px;
+    text-transform:uppercase ;
+    
+}
+.dropdown-item{
+    letter-spacing: .2em ;
+    font-size : 14px;
+    text-transform:uppercase ;
+}
+
+.site_footer{
+    background-color: #4c9ff1;
+    height: 60px;
+}
+
+.site_footer p{
+    padding-top: 20px;
+    font-size: 14px;
+    
+}
+
+/* ---- category page ------- */
+.site_row_class{
+    padding-top: 15px;
+}
+
+.site_row_class .mx_auto{
+    color: #000;
+    font-size: 12px;
+}
+
+.cat_img{
+    width: 100%;
+    height: auto;
+}
+.cat_title{
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: rgb(248, 248, 248);
+}
+.banner_style{
+    padding: 5px;
+}
+
+.logo{
+    width: 8rem;
+    height: 9rem;
+    margin-right: 62rem;
+  }
+.card_style{
+    width: 18rem;
+    height: 482px;
+     margin-bottom: 2rem;
+}
+
+/* ------product page --------*/
+
+
+.text_clr_pro{
+    color: rgb(252, 252, 252);
+}
+
+.prod_row_class{
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+.prod_row_class .mx_auto{
+    font-size: 16px;
+    text-decoration: none;
+
+}
+
+.pro_page_img{
+    width: 24rem;
+}
+
+.prod_name{
+    color: white;
+    font-size: 25px;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.prod_text{
+    padding-right: 20px;
+    color: white;
+    
+}
+.price{
+    color: white;
+    font-size: 18px;
+}
+.prod_desc{
+    color: white;
+    font-size: 20px;
+}
+
+/*----- search page ------*/
+
+.search_pg_text{
+    padding-top: 20px;
+    color: white;
+}
+
+/*------ cart page ------*/
+.cart_table{
+    min-width: 400px;
+    font-size: 14px;
+}
+.cart_t_head{
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing:.2rem;
+    background-color: rgb(247, 234, 218)!important;
+}
+
+.custom_a{
+    text-decoration: none;
+}
+
+.custom_icon{
+    text-decoration: none;
+    color: dimgray!important;
+}
+
+.custom_btn{
+    margin-top: 5px;
+}
