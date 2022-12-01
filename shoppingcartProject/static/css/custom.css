@@ -1,5 +1,15 @@
+html{
+    height: 100%;
+}
 body{
     background-image: linear-gradient( 94.3deg,  rgba(26,33,64,1) 10.9%, rgba(81,84,115,1) 87.1% );
+    
+    display: flex;
+    flex-direction:column;
+    flex-grow: 1;
+    min-height: 100%;
+    
+    
 }
 
  /* ------- navbar ------- */
@@ -18,12 +28,14 @@ body{
 .site_footer{
     background-color: #4c9ff1;
     height: 60px;
+    margin-top: auto;   
+    
 }
 
 .site_footer p{
     padding-top: 20px;
     font-size: 14px;
-    
+       
 }
 
 /* ---- category page ------- */
